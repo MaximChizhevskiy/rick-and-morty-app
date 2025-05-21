@@ -1,5 +1,5 @@
 export const LocationsPage = () => {
     return(
-        <h1>LocationsPage</h1>
+        <h1 className={'pageTitle'}>LocationsPage</h1>
     )
 }

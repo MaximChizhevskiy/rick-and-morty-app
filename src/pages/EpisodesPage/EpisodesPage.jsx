@@ -1,5 +1,5 @@
 export const EpisodesPage = () => {
     return(
-        <h1>EpisodesPage</h1>
+        <h1 className={'pageTitle'}>EpisodesPage</h1>
     )
 }
