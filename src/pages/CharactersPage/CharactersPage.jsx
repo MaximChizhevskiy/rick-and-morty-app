@@ -3,13 +3,33 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export const CharactersPage = () => {
-    const [characters, setCharacter] = useState([])
+    const [characters, setCharacters] = useState([])
+
+    const [info, setInfo] = useState({
+        count: 0,
+        pages: 0,
+        next: null,
+        prev: null,
+    })
+
+    const fetchData = (url) => {
+      axios.get(url).then((res) => {
+          setCharacters(res.data.results)
+          setInfo(res.data.info)
+      })
+    }
 
     useEffect(() => {
-        axios.get('https://rickandmortyapi.com/api/character').then((res) => {
-            setCharacter(res.data.results)
-        })
+      fetchData('https://rickandmortyapi.com/api/character')
     }, [])
+
+    const nextPageHandler = () => {
+        fetchData(info.next)
+    }
+
+    const previousPageHandler = () => {
+        fetchData(info.prev)
+    }
 
     return (
         <div className={'pageContainer'}>
@@ -25,6 +45,14 @@ export const CharactersPage = () => {
                         )
                     })
                 )}
+            </div>
+            <div className={s.buttonContainer}>
+                <button className="linkButton" onClick={previousPageHandler} disabled={info.prev === null}>
+                    Назад
+                </button>
+                <button className="linkButton" onClick={nextPageHandler} disabled={!info.next === null}>
+                    Вперед
+                </button>
             </div>
         </div>
     )
