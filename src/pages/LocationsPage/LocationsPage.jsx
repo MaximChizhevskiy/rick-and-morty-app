@@ -17,7 +17,7 @@ export const LocationsPage = () => {
     return (
         <div className={'pageContainer'}>
             <h1 className={'pageTitle'}>LocationsPage</h1>
-            {locations.length && (
+            {locations.length !== null && (
                 <>
                     {locations.map(location => {
                         return <div>
@@ -28,13 +28,11 @@ export const LocationsPage = () => {
                                 <li>Количество персонажей, которых видели в данной
                                     локации: <b>{location.residents.length}</b>
                                 </li>
-
                             </ul>
                             <hr/>
                         </div>
                     })}
                 </>
-
             )}
 
         </div>

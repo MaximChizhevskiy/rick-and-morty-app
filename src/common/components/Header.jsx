@@ -9,9 +9,9 @@ export const Header = () => {
 
     return (
         <div className={s.container}>
-            <NavLink className={s.headerLink} to={"/"}><img className={s.logo} src={logo} alt={"logo of Rick and Morty"}/></NavLink>
+            <NavLink className={s.headerLink} to={"/rick-and-morty-app"}><img className={s.logo} src={logo} alt={"logo of Rick and Morty"}/></NavLink>
             <nav>
-                <NavLink className={isActiveLinkStyle} to={"/"}>Home</NavLink>
+                <NavLink className={isActiveLinkStyle} to={"/rick-and-morty-app"}>Home</NavLink>
                 <NavLink className={isActiveLinkStyle} to={"/characters"}>Characters</NavLink>
                 <NavLink className={isActiveLinkStyle} to={"/locations"}>Locations</NavLink>
                 <NavLink className={isActiveLinkStyle} to={"/episodes"}>Episodes</NavLink>
